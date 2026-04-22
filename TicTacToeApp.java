@@ -1,37 +1,26 @@
-import java.util.Random;
+public class Main {
 
-public class TicTacToeApp {
-
-    static boolean isHumanTurn;
-    static char humanSymbol;
-    static char computerSymbol;
+    static char[][] board = new char[3][3];
 
     public static void main(String[] args) {
-        tossAndAssignSymbols();
-        displayTossResult();
+        initializeBoard();
+        printBoard();
     }
 
-    static void tossAndAssignSymbols() {
-        Random rand = new Random();
-        isHumanTurn = rand.nextBoolean();
-
-        if (isHumanTurn) {
-            humanSymbol = 'X';
-            computerSymbol = 'O';
-        } else {
-            humanSymbol = 'O';
-            computerSymbol = 'X';
+    static void initializeBoard() {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                board[row][col] = '-';
+            }
         }
     }
 
-    static void displayTossResult() {
-        if (isHumanTurn) {
-            System.out.println("Human plays first");
-        } else {
-            System.out.println("Computer plays first");
+    static void printBoard() {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                System.out.print(board[row][col] + " ");
+            }
+            System.out.println();
         }
-
-        System.out.println("Human symbol: " + humanSymbol);
-        System.out.println("Computer symbol: " + computerSymbol);
     }
 }
