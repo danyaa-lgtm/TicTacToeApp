@@ -1,15 +1,28 @@
-import java.util.Scanner;
+public class Main {
 
-public class TicTacToeApp {
+    static char[][] board = new char[3][3];
 
     public static void main(String[] args) {
-        int slot = getUserSlot();
-        System.out.println("Slot entered: " + slot);
+        initializeBoard();
+        printBoard();
     }
 
-    static int getUserSlot() {
-        Scanner sc = new Scanner(System.in);
-        int slot = sc.nextInt();
-        return slot;
+    // Initialize each cell with '-'
+    static void initializeBoard() {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                board[row][col] = '-';
+            }
+        }
+    }
+
+    // Print board with clean spacing
+    static void printBoard() {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                System.out.print(board[row][col] + " ");
+            }
+            System.out.println();
+        }
     }
 }
