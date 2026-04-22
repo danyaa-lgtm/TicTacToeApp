@@ -1,26 +1,15 @@
-public class Main {
+import java.util.Scanner;
 
-    static char[][] board = new char[3][3];
+public class TicTacToeApp {
 
     public static void main(String[] args) {
-        initializeBoard();
-        printBoard();
+        int slot = getUserSlot();
+        System.out.println("Slot entered: " + slot);
     }
 
-    static void initializeBoard() {
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                board[row][col] = '-';
-            }
-        }
-    }
-
-    static void printBoard() {
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                System.out.print(board[row][col] + " ");
-            }
-            System.out.println();
-        }
+    static int getUserSlot() {
+        Scanner sc = new Scanner(System.in);
+        int slot = sc.nextInt();
+        return slot;
     }
 }
