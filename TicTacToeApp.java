@@ -1,33 +1,27 @@
-import java.util.Random;
-
 public class TicTacToeApp {
 
-    static char[][] board = {
-        {'-', '-', '-'},
-        {'-', '-', '-'},
-        {'-', '-', '-'}
-    };
-
-    static char computerSymbol = 'O';
+    static boolean isHumanTurn = true;
+    static boolean gameOver = false;
 
     public static void main(String[] args) {
-        computerMove();
+
+        while (!gameOver) {
+
+            if (isHumanTurn) {
+                System.out.println("Human's turn");
+            } else {
+                System.out.println("Computer's turn");
+            }
+
+            gameOver = checkGameOver();
+
+            isHumanTurn = !isHumanTurn;
+        }
+
+        System.out.println("Game Over");
     }
 
-    static void computerMove() {
-        Random rand = new Random();
-        int slot;
-
-        while (true) {
-            slot = rand.nextInt(9) + 1;
-
-            int row = (slot - 1) / 3;
-            int col = (slot - 1) % 3;
-
-            if (board[row][col] == '-') {
-                board[row][col] = computerSymbol;
-                break;
-            }
-        }
+    static boolean checkGameOver() {
+        return false;
     }
 }
