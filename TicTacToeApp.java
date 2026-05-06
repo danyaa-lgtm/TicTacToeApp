@@ -1,13 +1,33 @@
+import java.util.Random;
+
 public class TicTacToeApp {
 
-    static char[][] board = new char[3][3];
+    static char[][] board = {
+        {'-', '-', '-'},
+        {'-', '-', '-'},
+        {'-', '-', '-'}
+    };
+
+    static char computerSymbol = 'O';
 
     public static void main(String[] args) {
-        placeMove(0, 0, 'X');
-        System.out.println(board[0][0]);
+        computerMove();
     }
 
-    static void placeMove(int row, int col, char symbol) {
-        board[row][col] = symbol;
+    static void computerMove() {
+        Random rand = new Random();
+        int slot;
+
+        while (true) {
+            slot = rand.nextInt(9) + 1;
+
+            int row = (slot - 1) / 3;
+            int col = (slot - 1) % 3;
+
+            if (board[row][col] == '-') {
+                board[row][col] = computerSymbol;
+                break;
+            }
+        }
     }
 }
